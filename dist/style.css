@@ -1,0 +1,21 @@
+header {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    color: white;
+    font-size: 40px;
+    background-color: #F02B43;
+}
+
+.content {
+    margin: 20px;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 20px;
+    background-color: #49C1F4;
+}
