@@ -1,21 +1,50 @@
-const Employee = require("../lib/employee")
-const employee = new Employee()
+const Employee = require("../lib/Employee");
 
-describe('getName', () =>{
-    it("should ask the user for their name", () => {
-        expect(employee.getName("Sarah").toBe("Sarah"))
-    })
+test("Can create an new employee.", () => {
+    const employeeInstance = new Employee();
+    expect(typeof(employeeInstance)).toBe("object");
+})
+
+test("Testing name.", () => {
+    const name = "Sarah";
+    const employeeInstance = new Employee(name);
+    expect(employeeInstance.name).toBe(name);
+})
+
+test("Testing ID.", () => {
+    const id = 2;
+    const employeeInstance = new Employee("Sarah", id);
+    expect(employeeInstance.id).toBe(id);
+})
+
+test("Testing email.", () => {
+    const email = "sarah@gmail.com";
+    const employeeInstance = new Employee("sarah", 2, email);
+    expect(employeeInstance.email).toBe(email);
 })
 
 
-describe('getId', () =>{
-    it("should return the role ID", () => {
-        expect(employee.getId("111").toBe("111"))
-    })
+
+test("Gets name through getName method.", () => {
+    const testName = "sarah";
+    const employeeInstance = new Employee(testName);
+    expect(employeeInstance.getName()).toBe(testName);
 })
 
-describe('getEmail', () =>{
-    it("should return the emaiil address of employee", () => {
-        expect(employee.getEmail("sarah@mullock.com").toBe("sarah@mullock.com"))
-    })
+test("Can test ID through getID method.", () => {
+    const testID = 2;
+    const employeeInstance = new Employee("sarah", testID);
+    expect(employeeInstance.getId()).toBe(testID);
+})
+
+test("Can test email through getEmail method.", () => {
+    const testEmail = "sarah@gmail.com";
+    const employeeInstance = new Employee("sarah", 2, testEmail);
+    expect(employeeInstance.getEmail()).toBe(testEmail);
+})
+
+test("Testing role.", () => {
+    const returnValue = "Employee";
+    const employeeInstance = new Employee("sarah", 2, "sarah@gmail.com");
+    expect(employeeInstance.getRole()).toBe(returnValue);
 })

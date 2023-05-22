@@ -1,15 +1,19 @@
-const Manager = require("../lib/manager")
-const manager = new Manager()
+const Manager = require("../lib/Manager");
 
-describe('getOfficeNumber', () =>{
-    it("should prompt the user for an office number", () => {
-        expect(manager.getGithub("1234").toBe("1234"))
-    })
-})
+test("Can create an office number.", () => {
+    const testOfficeNumber = 2;
+    const employeeInstance = new Manager("tara", 2, "tara@gmail.com", testOfficeNumber);
+    expect(employeeInstance.officeNumber).toBe(testOfficeNumber);
+});
 
+test("Testing officeNumber will return office number.", () => {
+    const testOfficeNumber = 2;
+    const employeeInstance = new Manager("tara", 2, "tara@gmail.com", testOfficeNumber);
+    expect(employeeInstance.getOfficeNumber()).toBe(testOfficeNumber);
+});
 
-describe('getRole', () =>{
-    it("should return the role Manager", () => {
-        expect(manager.getRole().toBe("Manager"))
-    })
-})
+test("Testing role.", () => {
+    const returnValue = "Manager";
+    const employeeInstance = new Manager("tara", 2, "tara@gmail.com", 2);
+    expect(employeeInstance.getRole()).toBe(returnValue);
+});

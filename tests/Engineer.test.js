@@ -1,15 +1,19 @@
-const Engineer = require("../lib/engineer")
-const engineer = new Engineer()
+const Engineer = require("../lib/Engineer");
 
-describe('getGithub', () =>{
-    it("should ask the user for a Github name", () => {
-        expect(engineer.getGithub("markymark").toBe("markymark"))
-    })
-})
+test("Can create a github.", () => {
+    const testGithub = "smullock";
+    const employeeInstance = new Engineer("sarah", 2, "sarah@gmail.com", testGithub);
+    expect(employeeInstance.github).toBe(testGithub);
+});
 
+test("Testing getGithub will return github.", () => {
+    const testGithub = "smullock";
+    const employeeInstance = new Engineer("sarah", 2, "sarah@gmail.com", testGithub);
+    expect(employeeInstance.getGithub()).toBe(testGithub);
+});
 
-describe('getRole', () =>{
-    it("should return the role Engineer", () => {
-        expect(engineer.getRole().toBe("Engineer"))
-    })
-})
+test("Testing role.", () => {
+    const returnValue = "Engineer";
+    const employeeInstance = new Engineer("sarah", 2, "sarah@gmail.com", "smullock");
+    expect(employeeInstance.getRole()).toBe(returnValue);
+});
